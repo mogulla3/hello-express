@@ -8,13 +8,13 @@ const dbRouter = require('./routes/db')
 const app = express()
 
 app.use(cookieSession({
-  name: 'hello-express-session',
-  keys: ['secret1', 'secret2'],
-  maxAge: 60 * 60 * 24 * 1000,
-  httpOnly: true
+    name: 'hello-express-session',
+    keys: ['secret1', 'secret2'],
+    maxAge: 60 * 60 * 24 * 1000,
+    httpOnly: true
 }))
-app.use(bodyParser.json()); // for application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for application/x-www-form-urlencoded
+app.use(bodyParser.json()) // for application/json
+app.use(bodyParser.urlencoded({ extended: true })) // for application/x-www-form-urlencoded
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/db', dbRouter)
