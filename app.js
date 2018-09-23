@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const cookieSession = require('cookie-session')
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
+const dbRouter = require('./routes/db')
 
 const app = express()
 
@@ -16,5 +17,6 @@ app.use(bodyParser.json()); // for application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for application/x-www-form-urlencoded
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
+app.use('/db', dbRouter)
 
 app.listen(3000, () => console.log('listen..'))
